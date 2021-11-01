@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" type='text/css' href="{{url_for('static',filename='css/style.css')}}">
 </head>
 <body>
     <div class="formm">
         <form action="/" method="post">
         <input type="text" name="city" id="city_">
-        <button type="submit">Check Weather</button>
+        <button type="submit"><img src="https://www.freeiconspng.com/uploads/search-icon-png-21.png" width="30" alt="Search Free Icon Image" /></button>
         </form>
     </div>
     <div class="result" name="Weather">
         <p>{{ temp }}</p>
+        <p><a href="/live">Click Here For live temperature of multiple cities</a></p>
         
 
     </div>

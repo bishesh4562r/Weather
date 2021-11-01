@@ -9,17 +9,20 @@ cityL=[]
 weatherL=[]
 def weatherA(city):
     try:
-        weather=mgr.weather_at_place(city)
-        Data=weather.weather
-        tempC = Data.temperature('celsius')
-        tempF = Data.temperature('fahrenheit')
+        if city!="":
+            weather=mgr.weather_at_place(city)
+            Data=weather.weather
+            tempC = Data.temperature('celsius')
+            tempF = Data.temperature('fahrenheit')
 
-        avgC=tempC['temp']
-        avgF=tempF['temp']
-        Temp=f"Average Temperature of {city} is {avgC} deg. Celcius or {avgF} deg. Farenheit"
-        return str(Temp)
+            avgC=tempC['temp']
+            avgF=tempF['temp']
+            Temp=f"Average Temperature of {city} is {avgC} deg. Celcius or {avgF} deg. Fahrenheit"
+            return str(Temp)
+        else:
+            return "No City Entered"
     except Exception as e:
-        return e
+        return "The City Name you entered is wrong"
 
 @app.route('/')
 def index():
@@ -32,6 +35,8 @@ def seeWeather():
       temp=weatherA(city)
       return render_template('index.html',temp=temp)
 
-
+@app.route('/live')
+def liveW():
+    return render_template('liveW.html')
 
 app.run(debug=True)

@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pyows = "*"
 flask = "*"
+pyowm = "*"
 
 [dev-packages]
 
